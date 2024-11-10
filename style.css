@@ -1,15 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
+/* General Styles */
+body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   font-family: 'Sacramento', cursive;
+   background-color: #f1e3d3;
+   overflow: hidden;
+}
+
+.valentines-day {
+   position: relative;
+   cursor: pointer;
+}
+
+/* Ajustes para la tarjeta (responsive) */
 #card {
-   height:500px;
-   width:800px;
-   margin:5em auto;
+   height: 500px;
+   width: 800px;
+   margin: 5em auto;
    position: fixed;
    top: -15px;
    left: 25%;
-   display:flex;
-   visibility:hidden;
+   display: flex;
+   visibility: hidden;
+   transition: all 0.3s ease;
 }
+
+/* Títulos y texto dentro de la tarjeta */
 #card h2 {
    font-size: 2.5em; /* Tamaño de fuente ajustado */
    margin: 0;
@@ -17,6 +37,7 @@
    text-align: center;
    font-family: 'Sacramento', cursive;
 }
+
 #card p {
    font-size: 1.5em; /* Tamaño de fuente ajustado */
    text-align: justify; /* Justifica el texto */
@@ -26,155 +47,247 @@
    line-height: 1.6; /* Aumenta el interlineado para mayor legibilidad */
 }
 
-
-.side {
-   background:#eee;
-   height:900px;
-   position: center;
-   width:400px;
-}
-.side.one {
-   width:320px;
-   position: center;
-   background:linear-gradient(90deg, #fff, #fff 40%, #ddd);
-}
-.side.two {
-   position: fixed;
-   width: 800px;  /* Mantiene el mismo ancho */
-   max-height: 90vh; /* Limita la altura máxima para que no ocupe más de 90% de la ventana */
-   margin: 0;
-   position: center;
-   padding-left: 70px;  
-   border-radius: 10px;
-   padding-right: 70px;
-   overflow-y: auto;
-   background:linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+/* Estilos del sobre y el corazón */
+.envelope {
+   position: relative;
+   filter: drop-shadow(0 0 25px rgba(0, 0, 0, .3));
 }
 
-body {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
-   font-family: 'Sacramento', cursive;
-   background-color: #f1e3d3;
-   overflow: hidden;
- }
- 
- .valentines-day {
-   position: relative;
-   cursor: pointer;
- }
- 
- .envelope {
-   position: relative;
-   filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
- }
- 
- .envelope:before {
-   content:"";
+.envelope:before {
+   content: "";
    position: absolute;
-   width:254px;
-   height:254px;
+   width: 254px;
+   height: 254px;
    background-color: #ff9494;
    transform: rotate(-45deg);
    border-radius: 0 15px 0 0;
-   left:-37px;
-   top:-82px;
- }
- 
- .envelope:after {
-   content:"";
+   left: -37px;
+   top: -82px;
+}
+
+.envelope:after {
+   content: "";
    position: absolute;
    background-color: #ff9494;
-   width:360px;
-   height:225px;
-   left:-90px;
-   top:45px;
- }
- 
- .heart {
+   width: 360px;
+   height: 225px;
+   left: -90px;
+   top: 45px;
+}
+
+.heart {
    position: relative;
    background-color: #ff7b00;
    display: inline-block;
    height: 180px;
-   top:50px;
-   left:0;
+   top: 50px;
+   left: 0;
    transform: rotate(-45deg);
-   width:180px;
-   filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
+   width: 180px;
+   filter: drop-shadow(0 -10px 25px rgba(0, 0, 0, .3));
    transition: .5s;
- }
-   
- .heart:before, .heart:after {
-   content:"";
+}
+
+.heart:before, .heart:after {
+   content: "";
    background-color: #ff7b00;
-   border-radius:50%;
+   border-radius: 50%;
    height: 180px;
    width: 180px;
    position: absolute;
-   }
-   
- .heart:before {
-   top:-100px;
-   left:0;}
-   
- .heart:after {
-   left:100px;
-   top:0;}
- 
- .front {
+}
+
+.heart:before {
+   top: -100px;
+   left: 0;
+}
+
+.heart:after {
+   left: 100px;
+   top: 0;
+}
+
+.front {
    position: absolute;
-   width:0;
-   height:0;
+   width: 0;
+   height: 0;
    border-right: 190px solid #fbd2d2;
    border-top: 113px solid transparent;
    border-bottom: 113px solid transparent;
-   top:44px;
-   left:80px;
-   z-index:4;
- }
- 
- .front:before {
-   content:"";
+   top: 44px;
+   left: 80px;
+   z-index: 4;
+}
+
+.front:before {
+   content: "";
    position: absolute;
-   width:0;
-   height:0;
+   width: 0;
+   height: 0;
    border-left: 190px solid #fbd2d2;
    border-top: 113px solid transparent;
    border-bottom: 113px solid transparent;
-   top:-113px;
-   left:-170px;
- }
- 
- .front:after {
-   width:0;
-   height:0;
+   top: -113px;
+   left: -170px;
+}
+
+.front:after {
+   width: 0;
+   height: 0;
    position: absolute;
-   content:"";
+   content: "";
    border-bottom: 150px solid #fce7e9;
-   border-right:180px solid transparent;
+   border-right: 180px solid transparent;
    border-left: 180px solid transparent;
-   top:-36px;
-   left:-170px;
- }
- 
- .text {
+   top: -36px;
+   left: -170px;
+}
+
+.text {
    position: absolute;
    font-family: arial;
-   letter-spacing:5px;
+   letter-spacing: 5px;
    text-align: center;
    color: white;
-   z-index:2;
-   top:80px;
-   left:15px;
+   z-index: 2;
+   top: 80px;
+   left: 15px;
    transition: .5s;
- }
- 
- .valentines-day:hover .heart {
+}
+
+/* Efecto hover */
+.valentines-day:hover .heart {
    transform: translateY(-50px) rotate(-45deg);
- }
- 
- .valentines-day:hover .text {
+}
+
+.valentines-day:hover .text {
    transform: translateY(-50px);
- }
+}
+
+/* Side section */
+.side {
+   background: #eee;
+   height: 900px;
+   width: 400px;
+   position: center;
+}
+
+.side.one {
+   width: 320px;
+   position: center;
+   background: linear-gradient(90deg, #fff, #fff 40%, #ddd);
+}
+
+.side.two {
+   position: fixed;
+   width: 800px;
+   max-height: 90vh;
+   margin: 0;
+   position: center;
+   padding-left: 70px;
+   border-radius: 10px;
+   padding-right: 70px;
+   overflow-y: auto;
+   background: linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+}
+
+/* Media Query para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+   /* Ajustar tamaño de la tarjeta */
+   #card {
+      width: 90%;
+      height: auto;
+      top: 20px;
+   }
+
+   /* Reducir tamaño del título */
+   #card h2 {
+      font-size: 2em;
+   }
+
+   /* Reducir tamaño del párrafo */
+   #card p {
+      font-size: 1.2em;
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+
+   /* Ajustar tamaño del corazón */
+   .heart {
+      height: 150px;
+      width: 150px;
+   }
+
+   /* Ajustar tamaño de las partes del corazón */
+   .heart:before, .heart:after {
+      height: 150px;
+      width: 150px;
+   }
+
+   /* Ajustar otros elementos */
+   .front {
+      width: 0;
+      height: 0;
+   }
+
+   .text {
+      top: 60px;
+      font-size: 1.2em;
+   }
+
+   .side {
+      width: 100%;
+      height: auto;
+   }
+
+   .side.one, .side.two {
+      width: 100%;
+      padding-left: 30px;
+      padding-right: 30px;
+   }
+
+   /* Mejorar la visibilidad en móviles */
+   .valentines-day {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+   }
+}
+
+/* Media Query para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+   /* Ajustar aún más los elementos */
+   #card {
+      width: 100%;
+      top: 10px;
+      left: 0;
+   }
+
+   #card h2 {
+      font-size: 1.8em;
+   }
+
+   #card p {
+      font-size: 1em;
+      padding-left: 10px;
+      padding-right: 10px;
+   }
+
+   .heart {
+      height: 120px;
+      width: 120px;
+   }
+
+   .heart:before, .heart:after {
+      height: 120px;
+      width: 120px;
+   }
+
+   .text {
+      font-size: 1em;
+   }
+
+   .side {
+      width: 100%;
+   }
+}
